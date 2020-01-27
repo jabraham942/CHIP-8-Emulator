@@ -149,3 +149,15 @@ void Chip8::subroutine_return_00ee() {
 
 
 }
+
+
+
+
+void Chip8::jp_addr_1nnn(uint16_t addr ) {
+
+
+	this->pc = addr & 0x0FFF;
+
+
+	cout << "Jumped to address " + std::to_string(this->pc) + "\n";
+}

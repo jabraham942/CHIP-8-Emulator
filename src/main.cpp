@@ -21,6 +21,7 @@ int main(int argc, char **argv) {
 	chip8.load_rom(rom_name);
 	chip8.clear_display_00e0();	
 	chip8.subroutine_return_00ee();
+	chip8.jp_addr_1nnn(0x1FEF);
 	return 0;
 
 }
