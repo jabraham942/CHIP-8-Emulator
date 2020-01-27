@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
 	chip8.load_fonts();
 	chip8.load_rom(rom_name);
 	chip8.clear_display_00e0();	
-
+	chip8.subroutine_return_00ee();
 	return 0;
 
 }

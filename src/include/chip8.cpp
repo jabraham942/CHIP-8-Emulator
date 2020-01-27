@@ -129,3 +129,23 @@ void Chip8::clear_display_00e0() {
 
 
 }
+
+
+
+void Chip8::subroutine_return_00ee() {
+
+
+	if (this->stack_struct.size() == 0) {
+
+
+		cout << "Stack is empty. Returning from function call\n";
+	
+		return;
+	}	
+	this->pc = this->stack_struct.top();
+	this->sp--;
+
+
+
+
+}

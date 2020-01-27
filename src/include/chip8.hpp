@@ -2,7 +2,7 @@
 #define CHIP8_HPP
 
 #include <string>
-
+#include <stack>
 #include <cstdint>
 
 class Chip8 {
@@ -15,8 +15,8 @@ class Chip8 {
 
 		
 		uint8_t sp; //stack pointer
-		uint8_t stack[64];
-		
+		//uint8_t stack[64];
+		std::stack <uint8_t> stack_struct;
 		uint8_t st; //sound timer
 		uint16_t pc; //program cointer
 
@@ -31,7 +31,7 @@ class Chip8 {
 		void load_fonts();
 		
 		void clear_display_00e0();
-
+		void subroutine_return_00ee();
 
 
 
