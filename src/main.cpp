@@ -1,15 +1,23 @@
 #include "include/chip8.hpp"
 #include <string>
+#include <iostream>
 
 using namespace std;
 
 int main(int argc, char **argv) {
-	
-	
-	Chip8 chip8;
-	std::string test_string = "Fake_ROM123";
+	if(argc != 2) {
+		cout << "Wrong number of arguments\n";
 
-	chip8.load_rom(test_string);
+		return -1;
+	}
+
+	
+
+
+	Chip8 chip8;
+	std::string rom_name = argv[1];
+
+	chip8.load_rom(rom_name);
 	
 
 	return 0;
