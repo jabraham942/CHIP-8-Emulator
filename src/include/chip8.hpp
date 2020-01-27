@@ -3,16 +3,36 @@
 
 #include <string>
 
+#include <cstdint>
+
 class Chip8 {
 
 	private:
-		unsigned short opcode;
-		unsigned char memory[4096];
+		uint16_t opcode;
+
+		uint8_t V_reg[16];
+		uint16_t I_reg;
+
+		
+		uint8_t sp; //stack pointer
+		uint8_t stack[64];
+		
+		uint8_t st; //sound timer
+		uint16_t pc; //program cointer
+
+		uint8_t fb[64][32]; //64x32 frame buffer
+
+		uint8_t memory[4096];
 
 
 	public:
 
 		int load_rom(std::string rom_name);
+		void load_fonts();
+		
+		void clear_display_00e0();
+
+
 
 
 

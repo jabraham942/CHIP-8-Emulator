@@ -16,9 +16,10 @@ int main(int argc, char **argv) {
 
 	Chip8 chip8;
 	std::string rom_name = argv[1];
-
-	chip8.load_rom(rom_name);
 	
+	chip8.load_fonts();
+	chip8.load_rom(rom_name);
+	chip8.clear_display_00e0();	
 
 	return 0;
 
