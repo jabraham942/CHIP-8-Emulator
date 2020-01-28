@@ -161,3 +161,19 @@ void Chip8::jp_addr_1nnn(uint16_t addr ) {
 
 	cout << "Jumped to address " + std::to_string(this->pc) + "\n";
 }
+
+
+
+void Chip8::call_addr_2nnn(uint16_t addr ) {
+
+	this->sp++;
+
+	this->stack_struct.push(this->pc);
+
+	this->pc = addr & 0x0FFF;
+
+
+	cout << "Called subroutine at address " + std::to_string(this->pc) + "\n";	
+
+
+}

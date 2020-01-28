@@ -33,7 +33,7 @@ class Chip8 {
 		void clear_display_00e0();
 		void subroutine_return_00ee();
 		void jp_addr_1nnn(uint16_t addr);
-
+		void call_addr_2nnn(uint16_t addr);
 
 
 		Chip8() {};
