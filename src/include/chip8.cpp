@@ -177,3 +177,14 @@ void Chip8::call_addr_2nnn(uint16_t addr ) {
 
 
 }
+
+
+void Chip8::SE_Vx_byte_3xkk(uint8_t x, uint8_t kk) {
+	cout << "Checking if V_reg_x has value kk\n";
+	if(this->V_reg[x] == kk) {
+	
+	this->pc += 1;	
+	}
+
+
+}

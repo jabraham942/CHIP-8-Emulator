@@ -24,6 +24,7 @@ int main(int argc, char **argv) {
 	chip8.jp_addr_1nnn(0x1FEF);
 	chip8.call_addr_2nnn(0x12FA);
 
+	chip8.SE_Vx_byte_3xkk(4, 0x43);
 
 	return 0;
 

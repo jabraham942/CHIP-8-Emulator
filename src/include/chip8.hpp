@@ -34,7 +34,7 @@ class Chip8 {
 		void subroutine_return_00ee();
 		void jp_addr_1nnn(uint16_t addr);
 		void call_addr_2nnn(uint16_t addr);
-
+		void SE_Vx_byte_3xkk(uint8_t reg, uint8_t val);
 
 		Chip8() {};
 
