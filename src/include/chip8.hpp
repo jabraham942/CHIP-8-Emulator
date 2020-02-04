@@ -32,13 +32,15 @@ class Chip8 {
 		
 		void clear_display_00e0();
 		void subroutine_return_00ee();
+		
 		void jp_addr_1nnn(uint16_t addr);
 		void call_addr_2nnn(uint16_t addr);
 		
 		void se_Vx_byte_3xkk(uint8_t x, uint8_t kk);
 		void sne_Vx_byte_4xkk(uint8_t x, uint8_t kk);
-	
 		void se_Vx_Vy_5xy0(uint8_t x, uint8_t y);
+		
+		void ld_Vx_byte_6xkk(uint8_t x, uint8_t kk);
 
 		Chip8() {};
 

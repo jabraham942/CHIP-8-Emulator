@@ -220,3 +220,16 @@ void Chip8::se_Vx_Vy_5xy0(uint8_t x, uint8_t y) {
 
 
 }
+
+
+
+void Chip8::ld_Vx_byte_6xkk(uint8_t x, uint8_t kk) {
+
+
+	cout << "Setting V_x to value kk\n";
+
+
+	this->V_reg[x] = kk;
+
+
+}
