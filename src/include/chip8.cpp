@@ -179,7 +179,7 @@ void Chip8::call_addr_2nnn(uint16_t addr ) {
 }
 
 
-void Chip8::SE_Vx_byte_3xkk(uint8_t x, uint8_t kk) {
+void Chip8::se_Vx_byte_3xkk(uint8_t x, uint8_t kk) {
 	cout << "Checking if V_reg_x has value kk\n";
 	if(this->V_reg[x] == kk) {
 	
@@ -188,3 +188,16 @@ void Chip8::SE_Vx_byte_3xkk(uint8_t x, uint8_t kk) {
 
 
 }
+
+
+
+void Chip8::sne_Vx_byte_4xkk(uint8_t x, uint8_t kk) {
+        cout << "Checking if V_reg_x does not have value kk\n";
+        if(this->V_reg[x] != kk) {
+
+        this->pc += 1;
+        }
+
+
+}
+
