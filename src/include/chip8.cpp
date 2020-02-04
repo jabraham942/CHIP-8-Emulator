@@ -268,7 +268,7 @@ void Chip8::ld_Vx_Vy_8xy0(uint8_t x, uint8_t y) {
 
 
 
-void Chip8::or_Vx_vy_8xy1(int8_t x, uint8_t y) {
+void Chip8::or_Vx_Vy_8xy1(int8_t x, uint8_t y) {
 
 
 	cout << "Storing (Vx or Vy) in Vx\n";
@@ -280,7 +280,7 @@ void Chip8::or_Vx_vy_8xy1(int8_t x, uint8_t y) {
 
 
 
-void Chip8::and_Vx_vy_8xy2(int8_t x, uint8_t y) {
+void Chip8::and_Vx_Vy_8xy2(int8_t x, uint8_t y) {
 
 
 	cout << "Storing (Vx and Vy) in Vx\n";
@@ -288,6 +288,22 @@ void Chip8::and_Vx_vy_8xy2(int8_t x, uint8_t y) {
 
 	this->V_reg[x] &= this->V_reg[y];
 
+
+
+
+}
+
+
+
+
+
+void Chip8::xor_Vx_Vy_8xy3(int8_t x, uint8_t y) {
+
+
+	cout << "Storing (Vx XOR Vy) in Vx\n";
+
+
+	this->V_reg[x] ^=this->V_reg[y];
 
 
 
