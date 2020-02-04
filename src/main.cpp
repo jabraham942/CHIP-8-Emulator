@@ -36,7 +36,7 @@ int main(int argc, char **argv) {
 	chip8.and_Vx_Vy_8xy2(2,3);
 	
 	chip8.xor_Vx_Vy_8xy3(3,7);
-
+	chip8.add_Vx_Vy_8xy4(2,5);
 
 	return 0;
 

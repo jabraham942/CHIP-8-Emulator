@@ -308,3 +308,19 @@ void Chip8::xor_Vx_Vy_8xy3(int8_t x, uint8_t y) {
 
 
 }
+
+
+
+void Chip8::add_Vx_Vy_8xy4(int8_t x, uint8_t y) {
+
+
+	cout << "Storing (Vx + Vy) in Vx\n";
+
+
+
+
+	this->V_reg[x] += this->V_reg[y];
+
+
+
+}
