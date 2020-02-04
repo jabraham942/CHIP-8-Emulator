@@ -183,7 +183,7 @@ void Chip8::se_Vx_byte_3xkk(uint8_t x, uint8_t kk) {
 	cout << "Checking if V_reg_x has value kk\n";
 	if(this->V_reg[x] == kk) {
 	
-	this->pc += 1;	
+		this->pc += 1;	
 	}
 
 
@@ -195,9 +195,28 @@ void Chip8::sne_Vx_byte_4xkk(uint8_t x, uint8_t kk) {
         cout << "Checking if V_reg_x does not have value kk\n";
         if(this->V_reg[x] != kk) {
 
-        this->pc += 1;
+        	this->pc += 1;
         }
 
 
 }
 
+
+void Chip8::se_Vx_Vy_5xy0(uint8_t x, uint8_t y) {
+
+	cout << "Checking if V_x and V_y have same value\n";
+
+
+	if(this->V_reg[x] == this->V_reg[y]) {
+
+
+		this->pc += 1;
+
+
+	}
+
+
+
+
+
+}
