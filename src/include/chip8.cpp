@@ -268,7 +268,7 @@ void Chip8::ld_Vx_Vy_8xy0(uint8_t x, uint8_t y) {
 
 
 
-void Chip8::or_Vx_Vy_8xy1(int8_t x, uint8_t y) {
+void Chip8::or_Vx_Vy_8xy1(uint8_t x, uint8_t y) {
 
 
 	cout << "Storing (Vx or Vy) in Vx\n";
@@ -280,7 +280,7 @@ void Chip8::or_Vx_Vy_8xy1(int8_t x, uint8_t y) {
 
 
 
-void Chip8::and_Vx_Vy_8xy2(int8_t x, uint8_t y) {
+void Chip8::and_Vx_Vy_8xy2(uint8_t x, uint8_t y) {
 
 
 	cout << "Storing (Vx and Vy) in Vx\n";
@@ -297,7 +297,7 @@ void Chip8::and_Vx_Vy_8xy2(int8_t x, uint8_t y) {
 
 
 
-void Chip8::xor_Vx_Vy_8xy3(int8_t x, uint8_t y) {
+void Chip8::xor_Vx_Vy_8xy3(uint8_t x, uint8_t y) {
 
 
 	cout << "Storing (Vx XOR Vy) in Vx\n";
@@ -311,7 +311,7 @@ void Chip8::xor_Vx_Vy_8xy3(int8_t x, uint8_t y) {
 
 
 
-void Chip8::add_Vx_Vy_8xy4(int8_t x, uint8_t y) {
+void Chip8::add_Vx_Vy_8xy4(uint8_t x, uint8_t y) {
 
 
 	cout << "Storing (Vx + Vy) in Vx\n";
@@ -319,23 +319,60 @@ void Chip8::add_Vx_Vy_8xy4(int8_t x, uint8_t y) {
 
 
 
-	this->V_reg[x] += this->V_reg[y];
+	uint16_t tmp = this->V_reg[x] + this->V_reg[y];
 
+	this->V_reg[x] = (uint8_t) tmp & 0x0FF; //Lower 8 bits of result
+	this->V_reg[15] = (uint8_t) ((tmp &  0x100) >> 8); //Set VF = Overflow
+
+
+	cout << "Added value = " + std::to_string(this->V_reg[x]) + " and VF = " + std::to_string(this->V_reg[15]) + "\n";
 
 
 }
 
 
 
-void Chip8::sub_Vx_Vy_8xy5(int8_t x, uint8_t y) {
+void Chip8::sub_Vx_Vy_8xy5(uint8_t x, uint8_t y) {
 
 
 
 	cout << "Storing (Vx - Vy) in Vx\n";
 
+	if(this->V_reg[x] < this->V_reg[y]) {
 
+		this->V_reg[15] = 1;
+
+	}
+	else {
+
+		this->V_reg[15] = 0;
+
+	}
 
 	this->V_reg[x] -= this->V_reg[y];
 
+	cout << "Subtracted value = " + std::to_string(this->V_reg[x]) + " and VF = " + std::to_string(this->V_reg[15]) + "\n";
+}
+
+
+
+
+void Chip8::shr_Vx_8xy6(uint8_t x) {
+
+	cout << "Storing Vx = Vx SHR 1\n";
+
+
+	if(this->V_reg[x] & 0x01) {
+
+
+		this->V_reg[15] = 1;
+	}
+	else {
+
+		this->V_reg[15] = 0;
+	}
+
+	
+	this->V_reg[x] = this->V_reg[x] >> 1;
 
 }

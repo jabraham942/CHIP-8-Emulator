@@ -44,11 +44,15 @@ class Chip8 {
 		void add_Vx_byte_7xkk(uint8_t x, uint8_t kk);
 
 		void ld_Vx_Vy_8xy0(uint8_t x, uint8_t y);
-		void or_Vx_Vy_8xy1(int8_t x, uint8_t y);
-		void and_Vx_Vy_8xy2(int8_t x, uint8_t y);
-		void xor_Vx_Vy_8xy3(int8_t x, uint8_t y);
-		void add_Vx_Vy_8xy4(int8_t x, uint8_t y);
-		void sub_Vx_Vy_8xy5(int8_t x, uint8_t y);
+		void or_Vx_Vy_8xy1(uint8_t x, uint8_t y);
+		void and_Vx_Vy_8xy2(uint8_t x, uint8_t y);
+		void xor_Vx_Vy_8xy3(uint8_t x, uint8_t y);
+		void add_Vx_Vy_8xy4(uint8_t x, uint8_t y);
+		void sub_Vx_Vy_8xy5(uint8_t x, uint8_t y);
+		void shr_Vx_8xy6(uint8_t x);
+
+
+
 
 
 		Chip8() {};

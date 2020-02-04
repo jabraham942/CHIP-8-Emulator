@@ -36,10 +36,24 @@ int main(int argc, char **argv) {
 	chip8.and_Vx_Vy_8xy2(2,3);
 	
 	chip8.xor_Vx_Vy_8xy3(3,7);
-	chip8.add_Vx_Vy_8xy4(2,5);
-	chip8.sub_Vx_Vy_8xy5(1,4);
+	
+	cout << "-------------------\n";	
+	chip8.ld_Vx_byte_6xkk(1,0xFF);
+	chip8.ld_Vx_byte_6xkk(2,0xFF);
+	
+	chip8.ld_Vx_byte_6xkk(3,0x00);
+        chip8.ld_Vx_byte_6xkk(4,0xFF);
 
 
+
+
+	chip8.add_Vx_Vy_8xy4(1,2);
+	chip8.sub_Vx_Vy_8xy5(3,4);
+
+
+	cout << "--------------------\n";
+
+	chip8.shr_Vx_8xy6(2);
 	return 0;
 
 }
