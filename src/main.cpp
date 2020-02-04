@@ -37,6 +37,8 @@ int main(int argc, char **argv) {
 	
 	chip8.xor_Vx_Vy_8xy3(3,7);
 	chip8.add_Vx_Vy_8xy4(2,5);
+	chip8.sub_Vx_Vy_8xy5(1,4);
+
 
 	return 0;
 

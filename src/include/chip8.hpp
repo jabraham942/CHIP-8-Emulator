@@ -48,7 +48,7 @@ class Chip8 {
 		void and_Vx_Vy_8xy2(int8_t x, uint8_t y);
 		void xor_Vx_Vy_8xy3(int8_t x, uint8_t y);
 		void add_Vx_Vy_8xy4(int8_t x, uint8_t y);
-
+		void sub_Vx_Vy_8xy5(int8_t x, uint8_t y);
 
 
 		Chip8() {};
