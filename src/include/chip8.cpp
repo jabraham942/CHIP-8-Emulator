@@ -265,3 +265,15 @@ void Chip8::ld_Vx_Vy_8xy0(uint8_t x, uint8_t y) {
 
 
 }
+
+
+
+void Chip8::or_Vx_vy_8xy1(int8_t x, uint8_t y) {
+
+
+	cout << "Storing (Vx or Vy) in Vx\n";
+
+	this ->V_reg[x] |= this->V_reg[y];
+
+
+}

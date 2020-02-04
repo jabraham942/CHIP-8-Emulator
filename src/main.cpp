@@ -31,7 +31,8 @@ int main(int argc, char **argv) {
 
 	chip8.add_Vx_byte_7xkk(5,0x24);
 	chip8.ld_Vx_Vy_8xy0(3,4);
-
+	
+	chip8.or_Vx_vy_8xy1(5,6);
 	return 0;
 
 }
