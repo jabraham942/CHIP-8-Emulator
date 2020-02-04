@@ -250,3 +250,18 @@ void Chip8::add_Vx_byte_7xkk(uint8_t x, uint8_t kk)  {
 
 
 }
+
+
+
+void Chip8::ld_Vx_Vy_8xy0(uint8_t x, uint8_t y) {
+
+
+	cout << "Storing Vy in Vx\n";
+
+
+
+	this->V_reg[x] = this->V_reg[y];
+
+
+
+}

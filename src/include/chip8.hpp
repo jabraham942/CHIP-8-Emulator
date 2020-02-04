@@ -42,7 +42,7 @@ class Chip8 {
 		
 		void ld_Vx_byte_6xkk(uint8_t x, uint8_t kk);
 		void add_Vx_byte_7xkk(uint8_t x, uint8_t kk);
-
+		void ld_Vx_Vy_8xy0(uint8_t x, uint8_t y);
 
 
 		Chip8() {};
