@@ -233,3 +233,20 @@ void Chip8::ld_Vx_byte_6xkk(uint8_t x, uint8_t kk) {
 
 
 }
+
+
+
+
+
+void Chip8::add_Vx_byte_7xkk(uint8_t x, uint8_t kk)  {
+
+
+
+	cout << "Adding kk to Vx\n";
+
+
+	this->V_reg[x] += kk;
+
+
+
+}

@@ -29,6 +29,9 @@ int main(int argc, char **argv) {
 	chip8.se_Vx_Vy_5xy0(4,8);
 	chip8.ld_Vx_byte_6xkk(3,0x32);
 
+	chip8.add_Vx_byte_7xkk(5,0x24);
+
+
 	return 0;
 
 }
