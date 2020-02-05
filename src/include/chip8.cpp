@@ -506,3 +506,19 @@ void Chip8::jp_v0_addr_Bnnn(uint16_t addr) {
 
 
 }
+
+
+
+
+
+void Chip8::rnd_Vx_byte_Cxkk(uint8_t x, uint8_t kk) {
+
+
+	cout << "Setting Vx to random byte and kk\n";
+
+
+	this->V_reg[x] = kk & (rand() % 0xFF);
+
+
+
+}
