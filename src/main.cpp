@@ -67,7 +67,8 @@ int main(int argc, char **argv) {
 	chip8.skp_Vx_Ex9E(1);
 	chip8.sknp_Vx_ExA1(4);
 	chip8.ld_Vx_dt_Fx07(3);
-
+	chip8.ld_Vx_K_Fx0A(4);
+	chip8.ld_dt_Vx_Fx15(3);
 	return 0;
 
 }

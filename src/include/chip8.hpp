@@ -60,11 +60,15 @@ class Chip8 {
 		void jp_v0_addr_Bnnn(uint16_t addr);	
 		void rnd_Vx_byte_Cxkk(uint8_t x, uint8_t kk);
 
-		void drw_Vx_Vy_nibble_Dxyn(uint8_t x, uint8_t y, uint8_t n); //NEED to be filled out
-		void skp_Vx_Ex9E(uint8_t x); //NEED to be filled out
-		void sknp_Vx_ExA1(uint8_t x); //NEED to be filled out
+		void drw_Vx_Vy_nibble_Dxyn(uint8_t x, uint8_t y, uint8_t n); //TODO
+		void skp_Vx_Ex9E(uint8_t x); //TODO
+		void sknp_Vx_ExA1(uint8_t x); //TODO
 
 		void ld_Vx_dt_Fx07(uint8_t x);
+		
+		void ld_Vx_K_Fx0A(uint8_t x); //TODO
+
+		void ld_dt_Vx_Fx15(uint8_t x);
 
 
 

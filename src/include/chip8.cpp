@@ -582,3 +582,33 @@ void Chip8::ld_Vx_dt_Fx07(uint8_t x) {
 
 
 }
+
+
+void Chip8::ld_Vx_K_Fx0A(uint8_t x) {  
+
+
+	cout << "Waiting for key press\n";
+
+
+
+
+
+
+}
+
+
+
+
+
+
+void Chip8::ld_dt_Vx_Fx15(uint8_t x) {
+
+
+	cout << "Storing value of Vx in delay timer\n";
+
+
+
+	this->dt = this->V_reg[x];
+
+
+}
