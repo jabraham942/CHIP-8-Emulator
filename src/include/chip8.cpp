@@ -612,3 +612,19 @@ void Chip8::ld_dt_Vx_Fx15(uint8_t x) {
 
 
 }
+
+
+
+
+
+void Chip8::ld_st_Vx_Fx18(uint8_t x) {
+
+	cout << "Storing value of Vx in sound timer\n";
+
+
+	this->st = this->V_reg[x];
+
+
+
+
+}
