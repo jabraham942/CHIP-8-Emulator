@@ -54,6 +54,10 @@ int main(int argc, char **argv) {
 	cout << "--------------------\n";
 
 	chip8.shr_Vx_8xy6(2);
+	
+	chip8.shl_Vx_8xyE(4);
+	
+	
 	return 0;
 
 }

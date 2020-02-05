@@ -411,3 +411,36 @@ void Chip8::subn_Vx_Vy_8xy7(uint8_t x, uint8_t y) {
 
 
 }
+
+
+
+
+
+
+
+void Chip8::shl_Vx_8xyE(uint8_t x) {
+
+
+	cout << "Shift left 1 for Vx.\n";
+
+
+
+        if(this->V_reg[x] & 0x80) {
+
+
+                this->V_reg[15] = 1;
+        }
+        else {
+
+                this->V_reg[15] = 0;
+        }
+
+
+        this->V_reg[x] = this->V_reg[x] << 1;
+
+
+
+
+
+
+}
