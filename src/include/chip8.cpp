@@ -492,3 +492,17 @@ void Chip8::ld_I_addr_Annn(uint16_t addr) {
 
 
 }
+
+
+
+void Chip8::jp_v0_addr_Bnnn(uint16_t addr) {
+
+
+	cout << "Setting PC to V0 + addr\n";
+
+	this->pc = addr + this->V_reg[0];
+
+
+
+
+}

@@ -55,7 +55,7 @@ class Chip8 {
 
 		void sne_Vx_Vy_9xxy0(uint8_t x, uint8_t y);
 		void ld_I_addr_Annn(uint16_t addr);
-		
+		void jp_v0_addr_Bnnn(uint16_t addr);	
 
 
 

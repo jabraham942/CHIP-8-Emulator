@@ -60,7 +60,7 @@ int main(int argc, char **argv) {
 	chip8.sne_Vx_Vy_9xxy0(2,4);	
 
 	chip8.ld_I_addr_Annn(0x149);
-
+	chip8.jp_v0_addr_Bnnn(0x593);
 	return 0;
 
 }
