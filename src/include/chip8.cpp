@@ -522,3 +522,63 @@ void Chip8::rnd_Vx_byte_Cxkk(uint8_t x, uint8_t kk) {
 
 
 }
+
+
+
+
+void Chip8::drw_Vx_Vy_nibble_Dxyn( uint8_t x, uint8_t y, uint8_t n) {
+
+
+
+
+	cout << "Drawing n-byte sprite at memory location I\n";
+
+
+
+
+
+
+}
+
+
+
+
+void Chip8::skp_Vx_Ex9E(uint8_t x) {    
+
+
+	cout << "Skip next instruction if key with value Vx is pressed\n";
+
+
+}
+
+
+void Chip8::sknp_Vx_ExA1(uint8_t x) {
+
+	cout << "Skip next instruction if key with value Vx is not pressed\n";
+
+
+
+}
+
+
+
+
+
+
+void Chip8::ld_Vx_dt_Fx07(uint8_t x) {
+
+
+
+	cout << "Load delay timer value into Vx\n";
+
+
+
+
+	this->V_reg[x] = this->dt;
+
+
+
+
+
+
+}

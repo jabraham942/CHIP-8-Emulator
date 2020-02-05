@@ -63,9 +63,10 @@ int main(int argc, char **argv) {
 	chip8.jp_v0_addr_Bnnn(0x593);
 	chip8.rnd_Vx_byte_Cxkk(2,0x43);
 
-	
-
-
+	chip8.drw_Vx_Vy_nibble_Dxyn(1,2,5);	
+	chip8.skp_Vx_Ex9E(1);
+	chip8.sknp_Vx_ExA1(4);
+	chip8.ld_Vx_dt_Fx07(3);
 
 	return 0;
 

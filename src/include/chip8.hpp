@@ -18,6 +18,8 @@ class Chip8 {
 		//uint8_t stack[64];
 		std::stack <uint8_t> stack_struct;
 		uint8_t st; //sound timer
+		uint8_t dt; //delay timer
+
 		uint16_t pc; //program cointer
 
 		uint8_t fb[64][32]; //64x32 frame buffer
@@ -57,6 +59,13 @@ class Chip8 {
 		void ld_I_addr_Annn(uint16_t addr);
 		void jp_v0_addr_Bnnn(uint16_t addr);	
 		void rnd_Vx_byte_Cxkk(uint8_t x, uint8_t kk);
+
+		void drw_Vx_Vy_nibble_Dxyn(uint8_t x, uint8_t y, uint8_t n); //NEED to be filled out
+		void skp_Vx_Ex9E(uint8_t x); //NEED to be filled out
+		void sknp_Vx_ExA1(uint8_t x); //NEED to be filled out
+
+		void ld_Vx_dt_Fx07(uint8_t x);
+
 
 
 		Chip8() {};
