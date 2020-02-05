@@ -58,7 +58,9 @@ int main(int argc, char **argv) {
 	chip8.shl_Vx_8xyE(4);
 
 	chip8.sne_Vx_Vy_9xxy0(2,4);	
-	
+
+	chip8.ld_I_addr_Annn(0x149);
+
 	return 0;
 
 }

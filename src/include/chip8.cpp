@@ -473,3 +473,22 @@ void Chip8::sne_Vx_Vy_9xxy0(uint8_t x, uint8_t y) {
 
 
 }
+
+
+
+void Chip8::ld_I_addr_Annn(uint16_t addr) {
+
+
+
+	cout << "Loading addr in I\n";
+
+
+
+	this->I_reg = addr;
+
+
+
+
+
+
+}
