@@ -643,3 +643,51 @@ void Chip8::add_I_Vx_Fx1E(uint8_t x) {
 
 
 }
+
+
+
+void Chip8::ld_F_Vx_Fx29(uint8_t x) {
+
+
+	cout << "Set I = location of sprite for digit Vx\n";
+
+
+
+
+}
+
+
+
+
+void Chip8::ld_B_Vx_Fx33(uint8_t x) {
+
+	cout << "Store BCD representation of Vx in memory locations I, I+1, and I+2\n";
+
+
+
+
+
+}
+
+
+
+
+void Chip8::ld_I_Vx_Fx55(uint8_t x) {
+
+	cout << "Stores V0 to Vx in memory address starting at I\n";
+
+
+	for(int i=0; i<x+1;i++) {
+
+		this->memory[this->I_reg] = this->V_reg[i];
+		this->I_reg++;
+
+
+	}
+
+
+
+
+
+
+}

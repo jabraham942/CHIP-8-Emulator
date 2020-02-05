@@ -70,7 +70,10 @@ class Chip8 {
 		void ld_st_Vx_Fx18(uint8_t x);
 		
 		void add_I_Vx_Fx1E(uint8_t x);
+		void ld_F_Vx_Fx29(uint8_t x); //TODO
+		void ld_B_Vx_Fx33(uint8_t x); //TODO
 
+		void ld_I_Vx_Fx55(uint8_t x);
 
 		Chip8() {};
 
