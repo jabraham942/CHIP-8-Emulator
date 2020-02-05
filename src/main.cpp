@@ -70,7 +70,7 @@ int main(int argc, char **argv) {
 	chip8.ld_Vx_K_Fx0A(4);
 	chip8.ld_dt_Vx_Fx15(3);
 	chip8.ld_st_Vx_Fx18(6);
-
+	chip8.add_I_Vx_Fx1E(2);
 	return 0;
 
 }

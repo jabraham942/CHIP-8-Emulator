@@ -628,3 +628,18 @@ void Chip8::ld_st_Vx_Fx18(uint8_t x) {
 
 
 }
+
+
+void Chip8::add_I_Vx_Fx1E(uint8_t x) {
+
+
+	cout << "Storing I = I + Vx\n";
+
+
+
+
+	this->I_reg += this->V_reg[x];
+
+
+
+}
