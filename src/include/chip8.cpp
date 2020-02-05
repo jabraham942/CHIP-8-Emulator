@@ -528,14 +528,34 @@ void Chip8::rnd_Vx_byte_Cxkk(uint8_t x, uint8_t kk) {
 
 void Chip8::drw_Vx_Vy_nibble_Dxyn( uint8_t x, uint8_t y, uint8_t n) {
 
-
-
+	uint16_t start_memory = this->I_reg;
+	uint8_t byte_row = 0;
 
 	cout << "Drawing n-byte sprite at memory location I\n";
+	
+	for (int i=0;i<n;i++) {
+		
+		
+			
+		byte_row = this->memory[start_memory+i];
+
+		for (int j=0;j<8;j++) {
 
 
+			if(this->fb[(x+i)% 64][(y+j)%32] == 1) {
+
+				this->V_reg[15] = 1;
 
 
+			}
+			
+
+
+			this->fb[(x+i)% 64][(y+j)%32] ^= ((byte_row & (1 << j)) >> j);
+
+		}
+		
+	}
 
 
 }

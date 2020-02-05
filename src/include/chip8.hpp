@@ -60,7 +60,7 @@ class Chip8 {
 		void jp_v0_addr_Bnnn(uint16_t addr);	
 		void rnd_Vx_byte_Cxkk(uint8_t x, uint8_t kk);
 
-		void drw_Vx_Vy_nibble_Dxyn(uint8_t x, uint8_t y, uint8_t n); //TODO
+		void drw_Vx_Vy_nibble_Dxyn(uint8_t x, uint8_t y, uint8_t n); //TODO DONE
 		void skp_Vx_Ex9E(uint8_t x); //TODO
 		void sknp_Vx_ExA1(uint8_t x); //TODO
 		void ld_Vx_dt_Fx07(uint8_t x);
