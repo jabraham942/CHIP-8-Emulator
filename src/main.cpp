@@ -74,6 +74,7 @@ int main(int argc, char **argv) {
 	chip8.ld_F_Vx_Fx29(5);
 	chip8.ld_B_Vx_Fx33(3);
 	chip8.ld_I_Vx_Fx55(6);
+	chip8.ld_Vx_I_Fx65(7);
 	return 0;
 
 }

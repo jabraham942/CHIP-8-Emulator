@@ -691,3 +691,29 @@ void Chip8::ld_I_Vx_Fx55(uint8_t x) {
 
 
 }
+
+
+
+
+void Chip8::ld_Vx_I_Fx65(uint8_t x) {
+
+
+
+        cout << "Stores into V0 to Vx values in memory address starting at I\n";
+
+
+        for(int i=0; i<x+1;i++) {
+
+                this->V_reg[i] = this->memory[this->I_reg];
+
+                this->I_reg++;
+
+
+        }
+
+
+
+
+
+
+}
