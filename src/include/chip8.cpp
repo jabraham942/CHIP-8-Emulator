@@ -444,3 +444,32 @@ void Chip8::shl_Vx_8xyE(uint8_t x) {
 
 
 }
+
+
+
+
+
+
+
+void Chip8::sne_Vx_Vy_9xxy0(uint8_t x, uint8_t y) {
+
+
+	
+        cout << "Checking if V_x and V_y have different values\n";
+
+
+        if(this->V_reg[x] != this->V_reg[y]) {
+
+
+                this->pc += 1;
+
+
+        }
+
+
+
+
+
+
+
+}

@@ -53,7 +53,7 @@ class Chip8 {
 		void subn_Vx_Vy_8xy7(uint8_t x, uint8_t y);
 		void shl_Vx_8xyE(uint8_t x);
 
-
+		void sne_Vx_Vy_9xxy0(uint8_t x, uint8_t y);
 
 		Chip8() {};
 
