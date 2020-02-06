@@ -1,6 +1,9 @@
 #include "include/chip8.hpp"
 #include <string>
 #include <iostream>
+#include "SDL2/SDL.h"
+
+
 
 using namespace std;
 
@@ -10,6 +13,29 @@ int main(int argc, char **argv) {
 
 		return -1;
 	}
+	
+
+
+
+
+
+
+	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+
+		cout << "Error initializing SDL library\n";
+
+
+
+	}
+
+
+	SDL_Window* window = SDL_CreateWindow("CHIP-8-Emulator",
+					      SDL_WINDOWPOS_CENTERED,
+					      SDL_WINDOWPOS_CENTERED,
+					      900,900,0);
+
+
+
 
 	
 

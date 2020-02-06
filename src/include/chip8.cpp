@@ -2,11 +2,31 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-
+#include <unordered_map>
 
 using namespace std;
 
 
+static unordered_map<int, int> char_map({ 
+	       
+				{ 48,0 }, //1 --> 0x0
+				{ 49,1 }, //2 --> 0x1
+				{ 50,2 }, //3 --> 0x2
+				{ 51,3 }, //4 --> 0x3
+				{ 161,4}, //q --> 0x4
+				{ 119,5}, //w --> 0x5
+				{ 101,6}, //e --> 0x6
+				{ 114,7}, //r --> 0x7
+				{ 97 ,8}, //a --> 0x8
+				{ 115,9}, //s --> 0x9
+				{ 100,10},//d --> 0xA
+				{ 102,11},//f --> 0xB
+				{ 122,12},//z --> 0xC
+				{ 120,13},//x --> 0xD
+				{ 99 ,14},//c --> 0xE
+				{ 118,15} //v --> 0xF	
+	
+		});
 
 int Chip8::load_rom(std::string rom_name) {
 
@@ -560,7 +580,33 @@ void Chip8::drw_Vx_Vy_nibble_Dxyn( uint8_t x, uint8_t y, uint8_t n) {
 
 }
 
+void Chip8::check_keyboard() {
 
+	//1234  =>  0123
+	//qwer  =>  4567
+	//asdf  =>  89AB
+	//zxcv	=>  CDEF
+	
+	for(int i=0;i<16;i++) {
+
+		this->keyboard[i] = 0; //clearing keyboard
+
+
+	}	
+
+	int chr = -1;
+
+
+	chr = getchar();
+	
+	if(chr > 0) {
+		this->keyboard[char_map[chr]] = 1;
+	}
+
+
+
+
+}	
 
 
 void Chip8::skp_Vx_Ex9E(uint8_t x) {    
@@ -569,12 +615,27 @@ void Chip8::skp_Vx_Ex9E(uint8_t x) {
 	cout << "Skip next instruction if key with value Vx is pressed\n";
 
 
+	this->check_keyboard();
+
+	if(this->keyboard[this->V_reg[x]] == 1) {
+		this->pc += 2;
+
+	}
 }
 
 
 void Chip8::sknp_Vx_ExA1(uint8_t x) {
 
 	cout << "Skip next instruction if key with value Vx is not pressed\n";
+
+
+        this->check_keyboard();
+
+        if(this->keyboard[this->V_reg[x]] == 0) {
+                this->pc += 2;
+
+        }
+
 
 
 

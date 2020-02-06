@@ -12,7 +12,7 @@ class Chip8 {
 
 		uint8_t V_reg[16];
 		uint16_t I_reg;
-
+		
 		
 		uint8_t sp; //stack pointer
 		//uint8_t stack[64];
@@ -25,7 +25,8 @@ class Chip8 {
 		uint8_t fb[64][32]; //64x32 frame buffer
 
 		uint8_t memory[4096];
-
+		
+		uint8_t keyboard[16];
 
 	public:
 
@@ -61,8 +62,10 @@ class Chip8 {
 		void rnd_Vx_byte_Cxkk(uint8_t x, uint8_t kk);
 
 		void drw_Vx_Vy_nibble_Dxyn(uint8_t x, uint8_t y, uint8_t n); //TODO DONE
-		void skp_Vx_Ex9E(uint8_t x); //TODO
-		void sknp_Vx_ExA1(uint8_t x); //TODO
+		
+		void check_keyboard();
+		void skp_Vx_Ex9E(uint8_t x); //TODO DONE
+		void sknp_Vx_ExA1(uint8_t x); //TODO DONE
 		void ld_Vx_dt_Fx07(uint8_t x);
 		void ld_Vx_K_Fx0A(uint8_t x); //TODO
 
