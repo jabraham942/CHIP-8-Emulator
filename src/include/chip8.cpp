@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <unordered_map>
+#include "SDL2/SDL.h"
 
 using namespace std;
 
@@ -594,7 +595,7 @@ void Chip8::check_keyboard() {
 
 	}	
 
-	int chr = -1;
+	/*int chr = -1;
 
 
 	chr = getchar();
@@ -602,10 +603,50 @@ void Chip8::check_keyboard() {
 	if(chr > 0) {
 		this->keyboard[char_map[chr]] = 1;
 	}
+	*/
 
 
 
 
+
+
+SDL_Event e;
+
+
+		while(1) {
+	                //Handle events on queue
+                while( SDL_PollEvent( &e ) != 0 )
+                {
+                    //User presses a key
+                    if( e.type == SDL_KEYDOWN )
+                    {
+                        //Select surfaces based on key press
+                        switch( e.key.keysym.sym )
+                        {
+                            case SDLK_UP:
+                            cout << "Up arrow pressed!!!!!!!!!!!!!!!!!!!!!!!!!!\n"; 
+			    break;
+
+                            case SDLK_DOWN:
+                            cout << "Down arrow pressed!!!!!!!!!!!!!!!!!!!!!!!!!!\n";
+			    break;
+
+                            case SDLK_LEFT:
+                            cout << "Left arrow pressed!!!!!!!!!!!!!!!!!!!!!!!!!!\n";
+			    break;
+
+                            case SDLK_RIGHT:
+                            cout << "Right arrow pressed!!!!!!!!!!!!!!!!!!!!!!!!!!\n";    
+			    break;
+			
+                            default:
+                            cout << "NO KEY PRESSED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n";
+			    break;
+                        }
+                    }
+
+		}
+		}
 }	
 
 
