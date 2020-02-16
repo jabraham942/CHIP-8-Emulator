@@ -22,17 +22,21 @@ class Chip8 {
 
 		uint16_t pc; //program cointer
 
-		uint8_t fb[64][32]; //64x32 frame buffer
-
+		//uint8_t fb[64][32]; //64x32 frame buffer
+		uint8_t fb[64*32];
 		uint8_t memory[4096];
 		
 		uint8_t keyboard[16];
-
 	public:
-
+		uint8_t display_change_flag;
+		int init();
 		int load_rom(std::string rom_name);
 		void load_fonts();
+	
+		void execute_OpCode();
+		void update_keyboard_state();	
 		
+
 		void clear_display_00e0();
 		void subroutine_return_00ee();
 		
@@ -56,7 +60,7 @@ class Chip8 {
 		void subn_Vx_Vy_8xy7(uint8_t x, uint8_t y);
 		void shl_Vx_8xyE(uint8_t x);
 
-		void sne_Vx_Vy_9xxy0(uint8_t x, uint8_t y);
+		void sne_Vx_Vy_9xy0(uint8_t x, uint8_t y);
 		void ld_I_addr_Annn(uint16_t addr);
 		void jp_v0_addr_Bnnn(uint16_t addr);	
 		void rnd_Vx_byte_Cxkk(uint8_t x, uint8_t kk);

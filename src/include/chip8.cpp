@@ -28,7 +28,12 @@ static unordered_map<int, int> char_map({
 				{ 118,15} //v --> 0xF	
 	
 		});
+int Chip8::init() {
 
+
+
+
+}
 int Chip8::load_rom(std::string rom_name) {
 
 	cout << "Rom name is " + rom_name + "\n";
@@ -68,7 +73,7 @@ int Chip8::load_rom(std::string rom_name) {
 
 
 		this->memory[512+i] = buffer[i];
-
+		//cout << std::to_string(buffer[i]) + "\n";
 
 
 	}
@@ -125,8 +130,187 @@ for(int i=0; i < 80; i++) {
 }
 
 
+
+
+void Chip8::execute_OpCode(){
+	uint16_t opcode = this->opcode = (this->memory[pc] << 8) | this->memory[pc+1];
+	switch(0xF000 & (opcode)) {
+		
+		case 0x0000:
+			switch(opcode) {
+			case 0x0E0:
+				clear_display_00e0();
+				break;
+			case 0x00EE:
+		 		subroutine_return_00ee();	
+				break;
+			default:
+				break;
+			}
+		case 0x1000:
+			jp_addr_1nnn(0x0FFF & opcode);
+			break;
+		case 0x2000:
+			call_addr_2nnn(0x0FFF & opcode);
+			break;
+		case 0x3000:
+
+			se_Vx_byte_3xkk((0x0F00 & opcode) >> 2, 0x00FF & opcode);
+			break;
+		case 0x4000:
+			sne_Vx_byte_4xkk((0x0F00 & opcode) >> 2, 0x00FF & opcode);
+			break;
+		case 0x5000:
+			se_Vx_Vy_5xy0((0x0F00 & opcode) >> 2, (0x00F0 & opcode) > 1);
+			break;
+		case 0x6000:
+			ld_Vx_byte_6xkk((0x0F00 & opcode) >> 2, 0x00FF & opcode);
+			break;
+		case 0x7000:
+			add_Vx_byte_7xkk((0x0F00 & opcode) >> 2, 0x00FF & opcode);
+			break;
+		case 0x8000:
+			switch(0x000F & opcode) {
+			
+				case 0:
+					ld_Vx_Vy_8xy0((0x0F00 & opcode) >> 2, (0x00F0 & opcode) > 1);
+					break;
+				case 1:
+					or_Vx_Vy_8xy1((0x0F00 & opcode) >> 2, (0x00F0 & opcode) > 1);
+					break;
+				case 2:
+					and_Vx_Vy_8xy2((0x0F00 & opcode) >> 2, (0x00F0 & opcode) > 1);
+					break;
+				case 3:
+					xor_Vx_Vy_8xy3((0x0F00 & opcode) >> 2, (0x00F0 & opcode) > 1);
+					break;
+				case 4:
+				       	add_Vx_Vy_8xy4((0x0F00 & opcode) >> 2, (0x00F0 & opcode) > 1);					       break;
+				case 5:
+					sub_Vx_Vy_8xy5((0x0F00 & opcode) >> 2, (0x00F0 & opcode) > 1);
+					break;
+				case 6:
+					shr_Vx_8xy6((0x0F00 & opcode) >> 2);
+					break;
+				case 7:
+					subn_Vx_Vy_8xy7((0x0F00 & opcode) >> 2, (0x00F0 & opcode) > 1);
+					break;
+				case 0xE:
+					shl_Vx_8xyE((0x0F00 & opcode) >> 2);
+					break;
+			}	
+			break;
+
+
+		case 0x9000:
+			sne_Vx_Vy_9xy0((0x0F00 & opcode) >> 2, (0x00F0 & opcode) > 1);
+			break;
+		case 0xA000:
+			ld_I_addr_Annn(0x0FFF & opcode);
+			break;
+		case 0xB000:
+			jp_v0_addr_Bnnn(0x0FFF & opcode);
+			break;
+		case 0xC000:
+			rnd_Vx_byte_Cxkk((0x0F00 & opcode) >> 2, 0x00FF & opcode);
+			break;
+		case 0xD000:
+			drw_Vx_Vy_nibble_Dxyn((0x0F00 & opcode) >> 2, (0x00F0 & opcode) > 1, 0x000F & opcode);
+			break;
+		case 0xE000:
+			switch(0x00FF & opcode) {
+
+				case 0x9E:
+					skp_Vx_Ex9E((0x0F00 & opcode) >> 2);
+					break;
+				case 0xA1:
+					sknp_Vx_ExA1((0x0F00 & opcode) >> 2);
+					break;
+
+			}
+
+			break;
+		case 0xF000:
+			switch(0x00FF & opcode) {
+
+				case 0x7:
+					ld_Vx_dt_Fx07((0x0F00 & opcode) >> 2);
+					break;
+				case 0x0A:
+					ld_Vx_K_Fx0A((0x0F00 & opcode) >> 2);
+					break;
+				case 0x15:
+					ld_dt_Vx_Fx15((0x0F00 & opcode) >> 2);
+					break;
+				case 0x18:
+					ld_st_Vx_Fx18((0x0F00 & opcode) >> 2);
+					break;
+				case 0x1E:
+					add_I_Vx_Fx1E((0x0F00 & opcode) >> 2);
+					break;
+				case 0x29:
+					ld_F_Vx_Fx29((0x0F00 & opcode) >> 2);
+					break;
+				case 0x33:
+					ld_B_Vx_Fx33((0x0F00 & opcode) >> 2);
+					break;
+				case 0x55:
+					ld_I_Vx_Fx55((0x0F00 & opcode) >> 2);
+					break;
+				case 0x65:
+					ld_Vx_I_Fx65((0x0F00 & opcode) >> 2);
+					break;
+
+
+
+
+
+
+			}
+			break;
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+	}
+
+
+	this->pc += 1;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+void Chip8::update_keyboard_state() {
+
+
+
+
+
+}
+
+
 void Chip8::clear_display_00e0() {
 
+	cout << "Clearing display\n";
 
 
 	for(int i = 0; i< 64; i++) {
@@ -136,7 +320,7 @@ void Chip8::clear_display_00e0() {
 
 
 
-			this->fb[i][j] = 0;
+			this->fb[64*j + i] = 0;
 
 
 
@@ -155,6 +339,7 @@ void Chip8::clear_display_00e0() {
 
 void Chip8::subroutine_return_00ee() {
 
+	cout << "Returning from subroutine (00ee)";
 
 	if (this->stack_struct.size() == 0) {
 
@@ -472,7 +657,7 @@ void Chip8::shl_Vx_8xyE(uint8_t x) {
 
 
 
-void Chip8::sne_Vx_Vy_9xxy0(uint8_t x, uint8_t y) {
+void Chip8::sne_Vx_Vy_9xy0(uint8_t x, uint8_t y) {
 
 
 	
@@ -563,7 +748,8 @@ void Chip8::drw_Vx_Vy_nibble_Dxyn( uint8_t x, uint8_t y, uint8_t n) {
 		for (int j=0;j<8;j++) {
 
 
-			if(this->fb[(x+i)% 64][(y+j)%32] == 1) {
+			//if(this->fb[(x+i)% 64][(y+j)%32] == 1) {
+			if(this->fb[((x+i)%64) + ((y+j)%32)*64] == 1) {
 
 				this->V_reg[15] = 1;
 
@@ -572,7 +758,8 @@ void Chip8::drw_Vx_Vy_nibble_Dxyn( uint8_t x, uint8_t y, uint8_t n) {
 			
 
 
-			this->fb[(x+i)% 64][(y+j)%32] ^= ((byte_row & (1 << j)) >> j);
+			//this->fb[(x+i)% 64][(y+j)%32] ^= ((byte_row & (1 << j)) >> j);
+			this->fb[ ((x+i)%64) + ((y+j)%32)*64 ] ^= ((byte_row & (1 << j)) >> j);
 
 		}
 		
