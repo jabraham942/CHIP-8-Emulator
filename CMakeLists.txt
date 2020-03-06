@@ -9,9 +9,7 @@ include_directories( include )
 set( MY_CPP_FILES 
     src/main.cpp
     src/include/chip8.cpp
-    src/include/chip8.hpp
-    src/include/utils.cpp
-    src/include/utils.hpp)
+    src/include/chip8.hpp)
 
 # if you are creating an executable then do so like this
 # note that ${MY_CPP_FILES} will replace it with its content
