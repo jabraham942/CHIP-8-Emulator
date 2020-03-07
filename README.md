@@ -3,10 +3,10 @@ This program is a CHIP-8 emulator written in C++ which is intended for a Linux-b
 
 
 *Pong*
-![Pong](screenshots/pong.png "Pong")
+![Pong](screenshots/Pong.PNG)
 
 *Maze*
-![Maze](screenshots/maze.png "Maze")
+![Maze](screenshots/Maze.PNG)
 
 http://en.wikipedia.org/wiki/CHIP-8
 > CHIP-8 is an interpreted programming language, developed by Joseph Weisbecker. It was initially used on the COSMAC VIP and Telmac 1800 8-bit microcomputers in the mid-1970s. CHIP-8 programs are run on a CHIP-8 virtual machine. It was made to allow video games to be more easily programmed for these computers.
