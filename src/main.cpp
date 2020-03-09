@@ -3,8 +3,6 @@
 #include <iostream>
 #include "SDL2/SDL.h"
 
-
-
 using namespace std;
 
 int main(int argc, char **argv) {
@@ -15,16 +13,6 @@ int main(int argc, char **argv) {
 	}
 	
 
-
-
-
-
-
-
-
-
-
-
         Chip8 chip8;
 	chip8.init();
 
@@ -32,18 +20,6 @@ int main(int argc, char **argv) {
 
         chip8.load_fonts();
         chip8.load_rom(rom_name);
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         SDL_Window *window;
@@ -70,15 +46,11 @@ int main(int argc, char **argv) {
         uint32_t pixels[64*32];
 
 	int rc = 0;
-
 	int k = 0;
 
         while (1) {
                 chip8.execute_OpCode();
                 int i = 0;
-
-
-
 		
 		if(chip8.display_change_flag == 1) {
 		chip8.display_change_flag = 0;
@@ -101,7 +73,6 @@ int main(int argc, char **argv) {
                 SDL_RenderCopy(renderer, texture, NULL, NULL);
                 SDL_RenderPresent(renderer);
 
-
 		}
     		rc = chip8.update_keyboard_state();
 
@@ -112,17 +83,9 @@ int main(int argc, char **argv) {
 		}
 
 		k++;
-
-
-
-
-
         }
         SDL_DestroyRenderer(renderer);
         SDL_Quit();
-	
-	
-	
 	
 	return 0;
 
