@@ -37,5 +37,6 @@ Various CHIP-8 ROMs can be found at the following link:
 - https://github.com/dmatlack/chip8/tree/master/roms
 
 ## References
-I used the following helpful resource while writing this emulator.
+I used the following resources while writing this CHIP-8 emulator.
+- http://www.cs.columbia.edu/~sedwards/classes/2016/4840-spring/designs/Chip8.pdf
 - http://www.multigesture.net/articles/how-to-write-an-emulator-chip-8-interpreter/
